@@ -1,0 +1,20 @@
+EC2  with ubuntu
+apt-get update
+apt-get install docker.io
+docker network ls
+docker network create mongo-network
+docker pull mongo
+mongo port no - 27017
+docker run -d -p 27017:27017 --name mongo --net mongo-network -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=pass mongo
+                  ec2 : container
+docker ps
+docker logs <hashvalue>   -->(docker logs 33ea2f7abc9929441c8649d24624b891c2ec005d4c9146e0af0aff22524a8314)
+publicipofec2:27017 in browser
+mongo -server
+      client(mongo-express)
+docker pull mongo-express
+docker run -d -p 8081:8081 --name mongo-express --net mongo-network -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=pass -e ME_CONFIG_MONGODB_SERVER=mongo mongo-express
+docker logs <hashvalue>  --> docker logs 350eb31673a29e2498e49ac676a465861f132089ec54ca8e97c442f58dbf3980
+docker stop <container>
+docker rm <images> 
+docker container prune
